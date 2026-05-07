@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+Sitemap: https://tanah-aluvial-kelompok2-x11.vercel.app/sitemap.xml

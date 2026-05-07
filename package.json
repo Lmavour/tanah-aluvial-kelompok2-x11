@@ -1,0 +1,23 @@
+{
+  "name": "geodoc-tanah-aluvial",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GeoDoc - Laporan Praktikum Geografi Analisis Tanah Aluvial Kelompok 2",
+  "scripts": {
+    "dev": "npx serve public -l 3000",
+    "build": "echo 'Static site - no build required' && exit 0",
+    "start": "npx serve public -l 3000"
+  },
+  "keywords": [
+    "geografi",
+    "tanah-aluvial",
+    "cilamaya",
+    "kelompok-2",
+    "laporan-praktikum"
+  ],
+  "author": "Kelompok 2 Geografi",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
