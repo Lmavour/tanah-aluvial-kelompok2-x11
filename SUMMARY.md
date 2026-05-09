@@ -1,7 +1,7 @@
 # 📋 GeoDoc — Summary Peningkatan & Future Plan
 
 > Dokumentasi lengkap perubahan yang sudah diterapkan dan rencana pengembangan ke depan  
-> Terakhir diperbarui: 9 Mei 2025
+> Terakhir diperbarui: 1 Mei 2026
 
 ---
 
@@ -48,10 +48,10 @@
 ### 5. SEO & Metadata
 | Perubahan | File | Dampak |
 |---|---|---|
-| Perbarui `article:modified_time` ke 2025-05-09 | `public/index.html` | Sinyal fresh content ke search engines |
+| Perbarui `article:modified_time` ke 2026-05-01 | `public/index.html` | Sinyal fresh content ke search engines |
 | Perbarui `dateModified` di JSON-LD schema | `public/index.html` | Konsistensi structured data |
-| Perbarui `<lastmod>` sitemap ke 2025-05-09 | `public/sitemap.xml` | Sitemap up-to-date |
-| Perbarui copyright ke `2024–2025` | `public/index.html`, `public/404.html` | Legal accuracy |
+| Perbarui `<lastmod>` sitemap ke 2026-05-01 | `public/sitemap.xml` | Sitemap up-to-date |
+| Perbarui copyright ke `2024–2026` | `public/index.html`, `public/404.html` | Legal accuracy |
 | Tambah 8 long-tail keywords ke meta keywords | `public/index.html` | Meningkatkan peluang ranking untuk niche queries |
 
 ### 6. Keamanan (Security)

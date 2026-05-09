@@ -167,7 +167,7 @@ Website dilengkapi security headers melalui [`vercel.json`](vercel.json):
 
 ## 📄 Lisensi
 
-Proyek ini dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
 
 ---
 
@@ -179,5 +179,5 @@ Lihat [`SUMMARY.md`](SUMMARY.md) untuk dokumentasi lengkap perubahan yang sudah 
 
 <p align="center">
   <strong>GeoDoc.</strong> — Dokumentasi Praktikum Geografi SMAN 1 Cilamaya<br>
-  <sub>© 2024–2025 Kelompok 2 Geografi SMAN 1 Cilamaya</sub>
+  <sub>© 2024–2026 Kelompok 2 Geografi SMAN 1 Cilamaya</sub>
 </p>

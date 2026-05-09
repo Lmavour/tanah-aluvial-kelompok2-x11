@@ -15,7 +15,7 @@
     <meta name="description" content="Laporan praktikum geografi SMAN 1 Cilamaya tentang analisis karakteristik tanah aluvial di Empang Muarabaru, Cilamaya Wetan, Karawang. Penelitian lapangan Kelompok 2 Kelas X-11 dengan data tekstur tanah, peta digital interaktif, dan dokumentasi visual.">
     <meta name="keywords" content="tanah aluvial, SMAN 1 Cilamaya, SMA Negeri 1 Cilamaya, geografi, analisis tanah, Cilamaya Wetan, Muarabaru, Karawang, praktikum geografi, sedimentasi aluvial, tanah pesisir, penelitian lapangan, kelompok 2, kelas X-11, laporan praktikum, tekstur tanah, lempung berdebu">
     <meta name="author" content="Kelompok 2 Geografi SMAN 1 Cilamaya">
-    <meta name="copyright" content="© 2024 Kelompok 2 Geografi SMAN 1 Cilamaya">
+    <meta name="copyright" content="© 2024–2026 Kelompok 2 Geografi SMAN 1 Cilamaya">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="Indonesian">
     <meta name="revisit-after" content="7 days">
@@ -53,7 +53,7 @@
     <meta property="article:author" content="Kelompok 2 Geografi SMAN 1 Cilamaya">
     <meta property="article:publisher" content="SMAN 1 Cilamaya">
     <meta property="article:published_time" content="2024-01-01">
-    <meta property="article:modified_time" content="2025-05-09">
+    <meta property="article:modified_time" content="2026-05-01">
     <meta property="article:section" content="Geografi">
     <meta property="article:tag" content="tanah aluvial">
     <meta property="article:tag" content="geografi">
@@ -84,7 +84,7 @@
         "description": "Penelitian lapangan komprehensif tentang analisis dan karakteristik tanah aluvial oleh Kelompok 2 Kelas X-11 SMAN 1 Cilamaya dengan dokumentasi visual, data tekstur, dan visualisasi peta digital.",
         "image": "https://tanah-aluvial-kelompok2-x11.vercel.app/lokasi%20utama.png",
         "datePublished": "2024-01-01",
-        "dateModified": "2025-05-09",
+        "dateModified": "2026-05-01",
         "author": {
           "@type": "Organization",
           "name": "Kelompok 2 Geografi SMAN 1 Cilamaya",
@@ -366,6 +366,285 @@
             [id] {
                 scroll-margin-top: 1rem;
             }
+        }
+        /* =============================================
+           AI CHAT WIDGET
+           ============================================= */
+        .chat-fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 60;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .chat-fab:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 28px rgba(59, 130, 246, 0.5);
+        }
+        .chat-fab:active { transform: scale(0.95); }
+        .chat-fab .fab-icon { transition: all 0.3s ease; }
+        .chat-fab.open .fab-icon { transform: rotate(90deg); opacity: 0; }
+        .chat-fab .close-icon {
+            position: absolute;
+            transition: all 0.3s ease;
+            transform: rotate(-90deg);
+            opacity: 0;
+        }
+        .chat-fab.open .close-icon { transform: rotate(0deg); opacity: 1; }
+
+        /* Chat badge */
+        .chat-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 20px;
+            height: 20px;
+            background: #ef4444;
+            border-radius: 50%;
+            border: 2px solid white;
+            font-size: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: badge-pulse 2s infinite;
+        }
+        @keyframes badge-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        .chat-fab.open .chat-badge { display: none; }
+
+        /* Chat window */
+        .chat-window {
+            position: fixed;
+            bottom: 92px;
+            right: 24px;
+            z-index: 59;
+            width: 380px;
+            max-width: calc(100vw - 32px);
+            height: 520px;
+            max-height: calc(100vh - 140px);
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: scale(0.8) translateY(20px);
+            transform-origin: bottom right;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .chat-window.open {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Chat header */
+        .chat-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .chat-header-avatar {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        .chat-header-info h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0;
+        }
+        .chat-header-info p {
+            font-size: 11px;
+            opacity: 0.8;
+            margin: 2px 0 0;
+        }
+        .chat-status-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 4px;
+            animation: status-blink 2s infinite;
+        }
+        @keyframes status-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Chat messages area */
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            scroll-behavior: smooth;
+        }
+        .chat-messages::-webkit-scrollbar { width: 4px; }
+        .chat-messages::-webkit-scrollbar-track { background: transparent; }
+        .chat-messages::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
+
+        /* Message bubbles */
+        .chat-bubble {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+            line-height: 1.5;
+            word-wrap: break-word;
+            animation: bubble-in 0.3s ease;
+        }
+        @keyframes bubble-in {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .chat-bubble.user {
+            background: #3b82f6;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        .chat-bubble.assistant {
+            background: #f1f5f9;
+            color: #334155;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        .chat-bubble.assistant strong { color: #1e293b; }
+        .chat-bubble.assistant p { margin: 0 0 8px; }
+        .chat-bubble.assistant p:last-child { margin-bottom: 0; }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            align-self: flex-start;
+        }
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #94a3b8;
+            border-radius: 50%;
+            animation: typing-bounce 1.4s infinite;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing-bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-8px); }
+        }
+
+        /* Quick replies */
+        .chat-quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 0 16px 12px;
+            flex-shrink: 0;
+        }
+        .quick-reply-btn {
+            background: white;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #3b82f6;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .quick-reply-btn:hover {
+            background: #eff6ff;
+            border-color: #3b82f6;
+            transform: translateY(-1px);
+        }
+        .quick-reply-btn:active { transform: scale(0.95); }
+
+        /* Chat input */
+        .chat-input-area {
+            padding: 12px 16px;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-shrink: 0;
+            background: white;
+        }
+        .chat-input {
+            flex: 1;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 10px 16px;
+            font-size: 13px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+            background: #f8fafc;
+        }
+        .chat-input:focus { border-color: #3b82f6; background: white; }
+        .chat-input::placeholder { color: #94a3b8; }
+        .chat-send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .chat-send-btn:hover { background: #2563eb; }
+        .chat-send-btn:active { transform: scale(0.9); }
+        .chat-send-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
+
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            .chat-fab { bottom: 88px; right: 16px; }
+            .chat-window {
+                bottom: 0;
+                right: 0;
+                width: 100vw;
+                max-width: 100vw;
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+                transform-origin: bottom center;
+            }
+            .chat-window.open { transform: translateY(0); }
         }
     </style>
 </head>
@@ -799,7 +1078,7 @@
                 <p class="text-sm font-bold text-white mb-4">SMAN 1 Cilamaya</p>
                 <p class="text-xs font-bold text-blue-400 mb-1 uppercase tracking-widest">Guru Pengajar</p>
                 <p class="text-sm font-bold text-white mb-6 underline decoration-blue-500 underline-offset-4">Yumi Sasmita, S.Pd.</p>
-                <p class="text-[9px] mt-8 text-slate-600 font-bold tracking-widest uppercase">&copy; 2024–2025 Kelompok 2 Geografi SMAN 1 Cilamaya</p>
+                <p class="text-[9px] mt-8 text-slate-600 font-bold tracking-widest uppercase">&copy; 2024–2026 Kelompok 2 Geografi SMAN 1 Cilamaya</p>
             </div>
         </div>
     </footer>
@@ -807,6 +1086,32 @@
     <!-- Back to Top Button -->
     <button id="back-to-top" aria-label="Kembali ke atas" class="fixed bottom-24 md:bottom-8 right-4 md:right-8 z-40 w-12 h-12 bg-blue-600 text-white rounded-2xl shadow-lg shadow-blue-200 flex items-center justify-center hover:bg-blue-700 transition active:scale-90">
         <i class="fas fa-arrow-up text-sm" aria-hidden="true"></i>
+    </button>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-window" id="chatWindow" role="dialog" aria-label="Chat AI GeoDoc">
+        <div class="chat-header">
+            <div class="chat-header-avatar">
+                <i class="fas fa-robot" aria-hidden="true"></i>
+            </div>
+            <div class="chat-header-info">
+                <h4>GeoDoc AI</h4>
+                <p><span class="chat-status-dot"></span>Online — Siap menjawab</p>
+            </div>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-quick-replies" id="chatQuickReplies"></div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ketik pertanyaan tentang tanah aluvial..." autocomplete="off" aria-label="Ketik pesan">
+            <button class="chat-send-btn" id="chatSendBtn" aria-label="Kirim pesan" disabled>
+                <i class="fas fa-paper-plane text-sm" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <button class="chat-fab" id="chatFab" aria-label="Buka chat AI">
+        <i class="fas fa-comment-dots fab-icon text-xl" aria-hidden="true"></i>
+        <i class="fas fa-xmark close-icon text-xl" aria-hidden="true"></i>
+        <span class="chat-badge" id="chatBadge">1</span>
     </button>
 
     <!-- Leaflet Map JS -->
@@ -1053,6 +1358,215 @@
             // INVALIDATE MAP SIZE ON LOAD (fix rendering)
             // =============================================
             setTimeout(() => { map.invalidateSize(); }, 300);
+
+            // =============================================
+            // AI CHAT WIDGET
+            // =============================================
+            const chatFab = document.getElementById('chatFab');
+            const chatWindow = document.getElementById('chatWindow');
+            const chatMessages = document.getElementById('chatMessages');
+            const chatQuickReplies = document.getElementById('chatQuickReplies');
+            const chatInput = document.getElementById('chatInput');
+            const chatSendBtn = document.getElementById('chatSendBtn');
+            const chatBadge = document.getElementById('chatBadge');
+
+            let chatOpen = false;
+            let chatInitialized = false;
+            let isTyping = false;
+
+            // Toggle chat window
+            chatFab.addEventListener('click', () => {
+                chatOpen = !chatOpen;
+                chatWindow.classList.toggle('open', chatOpen);
+                chatFab.classList.toggle('open', chatOpen);
+
+                if (chatOpen && !chatInitialized) {
+                    initChat();
+                    chatInitialized = true;
+                }
+
+                if (chatOpen) {
+                    chatBadge.style.display = 'none';
+                    setTimeout(() => chatInput.focus(), 400);
+                }
+            });
+
+            // Enable/disable send button based on input
+            chatInput.addEventListener('input', () => {
+                chatSendBtn.disabled = !chatInput.value.trim();
+            });
+
+            // Send on Enter key
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && chatInput.value.trim() && !isTyping) {
+                    sendMessage(chatInput.value.trim());
+                }
+            });
+
+            // Send button click
+            chatSendBtn.addEventListener('click', () => {
+                if (chatInput.value.trim() && !isTyping) {
+                    sendMessage(chatInput.value.trim());
+                }
+            });
+
+            // Initialize chat with greeting
+            async function initChat() {
+                try {
+                    const res = await fetch('/api/chat');
+                    const data = await res.json();
+                    addMessage(data.greeting.content, 'assistant');
+                    renderQuickReplies(data.quickReplies);
+                } catch (err) {
+                    // Fallback if API fails
+                    addMessage('Halo! 👋 Saya asisten AI GeoDoc. Tanyakan apa saja tentang tanah aluvial dan penelitian Kelompok 2!', 'assistant');
+                    renderQuickReplies([
+                        'Apa itu tanah aluvial?',
+                        'Bagaimana tekstur tanahnya?',
+                        'Mengapa haranya tinggi?',
+                        'Apa saja 5 zona aluvial?',
+                        'Mengapa drainasenya buruk?',
+                        'Dimana lokasi penelitian?'
+                    ]);
+                }
+            }
+
+            // Send message to API
+            async function sendMessage(text) {
+                chatInput.value = '';
+                chatSendBtn.disabled = true;
+                chatQuickReplies.innerHTML = '';
+
+                // Add user bubble
+                addMessage(text, 'user');
+
+                // Show typing indicator
+                isTyping = true;
+                showTyping();
+
+                try {
+                    const res = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: text })
+                    });
+                    const data = await res.json();
+                    hideTyping();
+                    isTyping = false;
+
+                    // Typewriter effect
+                    await typewriterEffect(data.content, 'assistant');
+                } catch (err) {
+                    hideTyping();
+                    isTyping = false;
+                    addMessage('Maaf, terjadi kesalahan koneksi. Silakan coba lagi. 🔄', 'assistant');
+                }
+
+                // Show quick replies again after response
+                renderQuickReplies([
+                    'Apa itu tanah aluvial?',
+                    '5 zona aluvial?',
+                    'Cocok untuk pertanian?',
+                    'Mengapa drainasenya buruk?',
+                    'Cocok untuk batu bata?',
+                    'Siapa anggota Kelompok 2?'
+                ]);
+            }
+
+            // Add message bubble
+            function addMessage(text, role) {
+                const bubble = document.createElement('div');
+                bubble.className = `chat-bubble ${role}`;
+                bubble.innerHTML = formatText(text);
+                chatMessages.appendChild(bubble);
+                scrollToBottom();
+            }
+
+            // Typewriter effect for assistant messages
+            async function typewriterEffect(text, role) {
+                const bubble = document.createElement('div');
+                bubble.className = `chat-bubble ${role}`;
+                chatMessages.appendChild(bubble);
+
+                const formatted = formatText(text);
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = formatted;
+                const plainText = tempDiv.textContent;
+
+                // Show formatted text progressively
+                let charIndex = 0;
+                const speed = 12; // ms per character
+
+                return new Promise((resolve) => {
+                    function type() {
+                        if (charIndex < plainText.length) {
+                            // Show a portion of the formatted text
+                            charIndex += 2; // 2 chars at a time for speed
+                            const ratio = Math.min(charIndex / plainText.length, 1);
+                            // Reveal formatted HTML progressively
+                            bubble.innerHTML = formatted;
+                            // Clip using max-height animation
+                            bubble.style.maxHeight = `${ratio * 500}px`;
+                            bubble.style.overflow = 'hidden';
+                            scrollToBottom();
+                            setTimeout(type, speed);
+                        } else {
+                            bubble.style.maxHeight = '';
+                            bubble.style.overflow = '';
+                            bubble.innerHTML = formatted;
+                            scrollToBottom();
+                            resolve();
+                        }
+                    }
+                    type();
+                });
+            }
+
+            // Format text with markdown-like syntax
+            function formatText(text) {
+                return text
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/\n/g, '<br>')
+                    .replace(/^(.+)$/gm, (match) => {
+                        if (match.startsWith('<p>') || match.startsWith('<br>') || match.startsWith('<strong>')) return match;
+                        return match;
+                    });
+            }
+
+            // Show/hide typing indicator
+            function showTyping() {
+                const indicator = document.createElement('div');
+                indicator.className = 'typing-indicator';
+                indicator.id = 'typingIndicator';
+                indicator.innerHTML = '<span></span><span></span><span></span>';
+                chatMessages.appendChild(indicator);
+                scrollToBottom();
+            }
+
+            function hideTyping() {
+                const indicator = document.getElementById('typingIndicator');
+                if (indicator) indicator.remove();
+            }
+
+            // Render quick reply buttons
+            function renderQuickReplies(replies) {
+                chatQuickReplies.innerHTML = '';
+                replies.forEach(text => {
+                    const btn = document.createElement('button');
+                    btn.className = 'quick-reply-btn';
+                    btn.textContent = text;
+                    btn.addEventListener('click', () => {
+                        if (!isTyping) sendMessage(text);
+                    });
+                    chatQuickReplies.appendChild(btn);
+                });
+            }
+
+            // Scroll chat to bottom
+            function scrollToBottom() {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
         });
     </script>
 </body>
