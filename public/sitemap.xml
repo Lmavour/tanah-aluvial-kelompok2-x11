@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://tanah-aluvial-kelompok2-x11.vercel.app/</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2025-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://tanah-aluvial-kelompok2-x11.vercel.app/lokasi%20utama.png</image:loc>
+      <image:caption>Foto lokasi penelitian tanah aluvial di Empang Muarabaru, Cilamaya Wetan, Karawang</image:caption>
+      <image:title>Lokasi Utama Empang Muarabaru - SMAN 1 Cilamaya</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tanah-aluvial-kelompok2-x11.vercel.app/foto%20sampel%20tanah.jpeg</image:loc>
+      <image:caption>Foto sampel tanah aluvial lempung berdebu dari Empang Muarabaru</image:caption>
+      <image:title>Sampel Tanah Aluvial - Kelompok 2 SMAN 1 Cilamaya</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tanah-aluvial-kelompok2-x11.vercel.app/foto%20anggota%20bersama.jpeg</image:loc>
+      <image:caption>Foto bersama Kelompok 2 Kelas X-11 SMAN 1 Cilamaya di lokasi penelitian</image:caption>
+      <image:title>Kelompok 2 SMAN 1 Cilamaya di Lapangan</image:title>
+    </image:image>
   </url>
 </urlset>

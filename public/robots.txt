@@ -2,4 +2,11 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 
+# Crawl-delay untuk menghindari beban server
+Crawl-delay: 1
+
+# Sitemap
 Sitemap: https://tanah-aluvial-kelompok2-x11.vercel.app/sitemap.xml
+
+# Host
+Host: https://tanah-aluvial-kelompok2-x11.vercel.app/
