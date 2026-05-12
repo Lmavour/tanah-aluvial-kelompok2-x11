@@ -1,47 +1,18 @@
-/**
- * GeoDoc - Leaflet Map Module
- * Handles map initialization, zones, markers, river, and legend
- */
-
 export function initMap() {
-    // Sample location: 6°12'09.5"S 107°36'08.7"E
-    const sampleLocation = [-6.202639, 107.602417];
+    const sampleLocation = [-6.202639, 107.602417]; // Lokasi sampel utama
 
-    // Initialize map centered at Cilamaya Wetan
-    // Two-finger interaction on mobile, single finger scrolls the page
-    const map = L.map('map', {
-        scrollWheelZoom: false,
-        dragging: !L.Browser.mobile,
-        touchZoom: true
-    }).setView([-6.20, 107.60], 12);
+    const map = L.map('map').setView(sampleLocation, 12);
 
-    // Enable dragging only with 2+ fingers on touch devices
-    if (L.Browser.mobile) {
-        const mapContainer = map.getContainer();
-        mapContainer.addEventListener('touchstart', function(e) {
-            if (e.touches.length === 2) {
-                map.dragging.enable();
-            } else {
-                map.dragging.disable();
-            }
-        }, { passive: true });
-        mapContainer.addEventListener('touchend', function(e) {
-            if (e.touches.length < 2) {
-                map.dragging.disable();
-            }
-        }, { passive: true });
-    }
-
-    // OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
     // =============================================
-    // ZONA SEBARAN TANAH ALUVIAL (5 zona)
+    // ZONA ALUVIAL (POLYGONS)
     // =============================================
 
-    // Zona 1: Aluvial Pesisir Muarabaru (titik sampel utama)
+    // Zona 1: Aluvial Pesisir Muarabaru
     const zona1 = L.polygon([
         [-6.190, 107.585],
         [-6.190, 107.620],
